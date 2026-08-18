@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAF5F0; -webkit-font-smoothing: antialiased; }
+  a { color: #C1440E; text-decoration: none; }
+  a:hover { color: #E8834A; }
+  html { scroll-behavior: smooth; }
+  @media (max-width: 900px) {
+    [data-pad] { padding-left: 24px !important; padding-right: 24px !important; }
+    [data-stack] { grid-template-columns: 1fr !important; gap: 40px !important; }
+    [data-footer-grid] { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
+    [data-h1] { font-size: 40px !important; }
+  }
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2C1810; background: #FAF5F0;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(250,245,240,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(44,24,16,0.09);">
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="Hereda Homepage.dc.html" style="display: flex; align-items: center;"><img src="assets/hereda-lockup-light.png" alt="Hereda" style="height: 38px; width: auto; display: block;" /></a>
+      <a href="Hereda Homepage.dc.html" style="color: #2C1810; font-size: 15px; font-weight: 500; white-space: nowrap;" style-hover="color: #C1440E;">← Back to home</a>
+    </div>
+  </header>
+
+  <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 80px 48px 0;">
+    <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C1440E; margin: 0 0 18px;">Hereda Limited</p>
+    <h1 data-h1="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 58px; line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 24px; max-width: 20em;">Privacy Notice and Data Consent</h1>
+    <p style="font-size: 18px; line-height: 1.6; color: rgba(44,24,16,0.72); max-width: 40em; margin: 0 0 40px;">We have two privacy notices: one for farmers registered in the Hereda App, and one for the exporters and cooperatives who use the platform. Choose the one that applies to you.</p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid rgba(44,24,16,0.12); padding-bottom: 0;">
+      <button onClick="{{ showFarmers }}" style="font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; padding: 14px 20px; border: none; border-bottom: 2px solid {{ farmersBorder }}; background: transparent; color: {{ farmersColor }}; cursor: pointer;">For Farmers</button>
+      <button onClick="{{ showExporters }}" style="font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; padding: 14px 20px; border: none; border-bottom: 2px solid {{ exportersBorder }}; background: transparent; color: {{ exportersColor }}; cursor: pointer;">For Exporters and Cooperatives</button>
+    </div>
+  </div>
+
+  <sc-if value="{{ isFarmers }}" hint-placeholder-val="{{ true }}">
+  <div data-pad="1" data-stack="1" style="max-width: 1240px; margin: 0 auto; padding: 56px 48px 104px; display: grid; grid-template-columns: 0.32fr 0.68fr; gap: 64px; align-items: start;">
+    <aside style="position: sticky; top: 112px; border-left: 2px solid #2BBFB0; padding-left: 22px;">
+      <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(44,24,16,0.5); margin: 0 0 14px;">Document</p>
+      <p style="font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; line-height: 1.2; margin: 0 0 10px;">For Farmers</p>
+      <p style="font-size: 14px; color: rgba(44,24,16,0.6); margin: 0 0 20px;">Version 1.0 · August 2026</p>
+      <p style="font-size: 14px; line-height: 1.6; color: rgba(44,24,16,0.7); margin: 0;">Contact: <a href="mailto:info@hereda.co">info@hereda.co</a></p>
+    </aside>
+    <article style="max-width: 44em;">
+      <p style="font-size: 19px; line-height: 1.65; color: rgba(44,24,16,0.85); margin: 0 0 44px; padding-bottom: 36px; border-bottom: 1px solid rgba(44,24,16,0.12);">By registering in the Hereda App, you authorise us to process your personal data under the terms described below. Your consent is voluntary, informed and revocable.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">1. Who is responsible for your data</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">Hereda (Hereda Limited) is the company responsible for processing your personal data. We are registered in England and Wales, and we operate in Colombia through our Hereda App platform.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">Contact email: <a href="mailto:info@hereda.co">info@hereda.co</a></p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">This policy complies with Law 1581 of 2012 (Colombian Personal Data Protection Law) and its implementing decrees, as well as with the UK GDPR rules applicable to our operation as a company registered in the United Kingdom.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">2. What data we collect</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">We collect the following data about you as a farmer:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li><strong style="font-weight: 500;">Identity data:</strong> full name, national ID (cédula de ciudadanía) number</li>
+        <li><strong style="font-weight: 500;">Contact data:</strong> mobile phone number (WhatsApp)</li>
+        <li><strong style="font-weight: 500;">Farm data:</strong> municipality, department, crop(s), hectares</li>
+        <li><strong style="font-weight: 500;">Geospatial data:</strong> GPS coordinates and boundary polygon of your plot or plots</li>
+        <li><strong style="font-weight: 500;">Documents:</strong> national ID and property title or land tenure document</li>
+        <li><strong style="font-weight: 500;">Production and sales data:</strong> kilograms sold, harvest period, quality, date and time of transactions</li>
+        <li>Other data necessary to keep you compliant with agricultural trade regulations in force, including the EU Deforestation Regulation (EUDR) and any future applicable rules</li>
+      </ul>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">3. What we use your data for</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">We use your data for the following purposes:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li>To create and manage your agricultural digital identity (Mi Sello ID: HRD-CO-XXXXX)</li>
+        <li>To verify that your farm meets traceability and deforestation-free requirements</li>
+        <li>To automatically generate the Due Diligence Statements (DDS) required by the EUDR so exporters can sell your production to Europe</li>
+        <li>To share your verified information with the exporters, cooperatives and other supply chain entities that buy your production</li>
+        <li>To communicate with you about the status of your registration, field officer visits and platform updates</li>
+        <li>To comply with applicable legal and regulatory obligations</li>
+      </ul>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">4. Who we share your data with</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">We share your information only with entities that have a legitimate interest in the traceability of your agricultural production:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li><strong style="font-weight: 500;">Exporters and traders:</strong> who buy your cacao or coffee and need your data to comply with European import regulations</li>
+        <li><strong style="font-weight: 500;">Cooperatives:</strong> that you are a member of, and that act as intermediaries in the supply chain</li>
+        <li><strong style="font-weight: 500;">Agricultural supply chain entities:</strong> any actor with a legitimate interest in tracing the origin of the products, such as European buyers, certification bodies or regulatory authorities</li>
+        <li><strong style="font-weight: 500;">Technology service providers:</strong> who help us operate the platform (cloud storage, mapping services), under confidentiality agreements</li>
+      </ul>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">In the future, and with prior notice and an update to this document, we may share anonymised or aggregated data with insurers, financial institutions or other services that may directly benefit you as a farmer.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">5. Legal basis for processing</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">We process your data on the basis of:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li>Your explicit consent, given at the moment you register in the app</li>
+        <li>Compliance with legal and regulatory obligations (Law 1581/2012, EUDR)</li>
+        <li>The legitimate interest of guaranteeing agricultural traceability and access to international markets</li>
+      </ul>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">6. How long we keep your data</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">We keep your data for a minimum of 5 years from your last active transaction on the platform, or for the period required by applicable regulations, whichever is longer. The EU Deforestation Regulation (EUDR) requires traceability records to remain available for at least 5 years.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">You can request the deletion of your data at any time (see section 8), unless a legal obligation prevents us from doing so.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">7. Security of your data</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">We apply technical and organisational measures to protect your data: encryption in transit and at rest, role-based access restrictions, secure offline synchronisation via local SQLite, and periodic security audits.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">8. Your rights</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">Under Law 1581 of 2012 and the UK GDPR, you have the right to:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li>Access, update and correct your personal data</li>
+        <li>Request the deletion of your data when it is no longer necessary for the purposes of processing</li>
+        <li>Withdraw your consent at any time</li>
+        <li>File complaints with the Superintendency of Industry and Commerce (SIC) of Colombia or the Information Commissioner's Office (ICO) of the United Kingdom</li>
+      </ul>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">To exercise any of these rights, write to us at: <a href="mailto:info@hereda.co">info@hereda.co</a></p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">9. International data transfers</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">Your data may be processed on servers located outside Colombia (including the United Kingdom and the European Union). In all cases we apply appropriate safeguards in accordance with Colombian regulations and the UK GDPR.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">10. Changes to this policy</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 32px;">We may update this policy when necessary. We will notify you of any relevant change through the app. The current version will always be available at hereda.co/privacy</p>
+
+      <p style="font-size: 17px; line-height: 1.68; color: #2C1810; margin: 0; padding: 26px 28px; background: #F3E9E0; border-left: 2px solid #2BBFB0; border-radius: 3px;">By tapping "Accept" in the app, you confirm that you have read and understood this notice, and that you authorise the processing of your personal data for the purposes described here.</p>
+    </article>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isExporters }}" hint-placeholder-val="{{ false }}">
+  <div data-pad="1" data-stack="1" style="max-width: 1240px; margin: 0 auto; padding: 56px 48px 104px; display: grid; grid-template-columns: 0.32fr 0.68fr; gap: 64px; align-items: start;">
+    <aside style="position: sticky; top: 112px; border-left: 2px solid #E8834A; padding-left: 22px;">
+      <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(44,24,16,0.5); margin: 0 0 14px;">Document</p>
+      <p style="font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; line-height: 1.2; margin: 0 0 10px;">For Exporters and Cooperatives</p>
+      <p style="font-size: 14px; color: rgba(44,24,16,0.6); margin: 0 0 20px;">Version 1.0 · August 2026</p>
+      <p style="font-size: 14px; line-height: 1.6; color: rgba(44,24,16,0.7); margin: 0;">Contact: <a href="mailto:info@hereda.co">info@hereda.co</a></p>
+    </aside>
+    <article style="max-width: 44em;">
+      <p style="font-size: 19px; line-height: 1.65; color: rgba(44,24,16,0.85); margin: 0 0 44px; padding-bottom: 36px; border-bottom: 1px solid rgba(44,24,16,0.12);">By registering your company on the Hereda platform, you authorise the processing of your organisation's data and that of the farmers in your network, under the terms described below.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">1. Who is responsible for your data</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">Hereda (Hereda Limited) is the company responsible for processing your organisation's data. We are registered in England and Wales, and we operate the Hereda agricultural traceability platform.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">Contact email: <a href="mailto:info@hereda.co">info@hereda.co</a></p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">This policy complies with Law 1581 of 2012 (Colombia), its implementing decrees, and the UK GDPR rules applicable to our operation in the United Kingdom.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">2. What data we collect from your organisation</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">We collect the following information about your company or cooperative:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li><strong style="font-weight: 500;">Company identity data:</strong> legal name, tax ID (NIT), type of organisation</li>
+        <li><strong style="font-weight: 500;">Contact data:</strong> name of the legal representative or administrator user, email address, phone number</li>
+        <li><strong style="font-weight: 500;">Operational data:</strong> purchase volumes (kg), crops handled, regions of origin, export destinations</li>
+        <li><strong style="font-weight: 500;">Transaction data:</strong> records of purchases from farmers (date, kg, optional price, quality, harvest period)</li>
+        <li><strong style="font-weight: 500;">Compliance data:</strong> lots created, Due Diligence Statements (DDS) generated, EUDR status of your farmer network</li>
+        <li><strong style="font-weight: 500;">Data on your farmer network:</strong> all verified agricultural information for the farmers who form part of your supply chain</li>
+        <li>Other data necessary for compliance with current and future agricultural trade regulations, including the EU Deforestation Regulation (EUDR)</li>
+      </ul>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">3. What we use your data for</h2>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li>To manage your access to the Exporter Dashboard or the Hereda mobile app</li>
+        <li>To automatically generate the Due Diligence Statements (DDS) required by regulation (EUDR) using the verified data of your farmer network</li>
+        <li>To track and manage your purchase lots, transactions and compliance status</li>
+        <li>To send you alerts about farmers in your network who need attention for compliance</li>
+        <li>To let you send bulk communications to your farmers through the platform</li>
+        <li>To generate traceability reports to present to European buyers, certification bodies or regulatory authorities</li>
+        <li>To comply with applicable legal and regulatory obligations</li>
+      </ul>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">4. Access to data of farmers in your network</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">When registering farmers on the Hereda platform or linking existing farmers to your organisational account, the user gains access to the verified information of those farmers, including identity data, land information, geospatial coordinates and production and transaction records.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">This access is granted by virtue of the explicit and informed consent each farmer has given at the moment of registering on the platform, through which they authorise the transfer of their personal data to the agricultural supply chain entities with which they hold a commercial relationship, including exporters, traders and cooperatives.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">The user undertakes to process farmers' personal data in accordance with Law 1581 of 2012 and other applicable regulations, using it exclusively for the traceability, regulatory compliance and supply chain management purposes described in this policy. The assignment, sale or disclosure of that data to unauthorised third parties, or for purposes other than those established here, is expressly prohibited.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">5. Who we share the data with</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;"><strong style="font-weight: 500;">Technology service providers:</strong> data processors involved in the operation, maintenance and development of the platform, engaged under contracts that guarantee levels of protection equivalent to those required by applicable regulations.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;"><strong style="font-weight: 500;">European buyers and regulatory bodies:</strong> where the transfer is necessary to comply with obligations arising from the EU Deforestation Regulation (EUDR), including the submission of Due Diligence Statements to the competent authorities.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;"><strong style="font-weight: 500;">Agricultural supply chain entities:</strong> that can demonstrate a legitimate interest in verifying the origin, traceability and production conditions of the goods being traded.</p>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;"><strong style="font-weight: 500;">Public authorities and supervisory bodies:</strong> where processing is required in compliance with a legal or regulatory obligation applicable to Hereda or to your organisation.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">6. Legal basis for processing</h2>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li>Your explicit consent, given when registering your organisation on the platform</li>
+        <li>Compliance with legal and regulatory obligations (Law 1581/2012, EUDR)</li>
+        <li>The legitimate interest of guaranteeing traceability of the agricultural supply chain</li>
+        <li>Performance of the services contract between your organisation and Hereda</li>
+      </ul>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">7. Data retention</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">We keep your organisation's data and the associated transactions for a minimum of 5 years from the last active operation, or for the period required by applicable regulations. The EU Deforestation Regulation (EUDR) requires records to remain available for at least 5 years.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">8. Security</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">We apply technical and organisational security measures: role-based access and authentication, encryption of data in transit and at rest, secure offline synchronisation, and periodic security reviews.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">9. Your rights</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px;">As a representative of your organisation, you have the right to:</p>
+      <ul style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 14px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li><strong style="font-weight: 500;">Access:</strong> request confirmation as to whether your data is being processed and obtain a copy of the information held by Hereda.</li>
+        <li><strong style="font-weight: 500;">Rectification and updating:</strong> request the correction of inaccurate or incomplete data.</li>
+        <li><strong style="font-weight: 500;">Erasure:</strong> request the deletion of your data when it is no longer necessary for the purposes of processing, unless a legal or regulatory obligation prevents its deletion.</li>
+        <li><strong style="font-weight: 500;">Portability:</strong> request delivery of your data in a structured, commonly used format, where technically possible.</li>
+        <li><strong style="font-weight: 500;">Withdrawal of consent:</strong> withdraw the consent given at any time, without retroactive effect, which may entail the limitation or deactivation of your access to the platform.</li>
+        <li><strong style="font-weight: 500;">Objection and restriction of processing:</strong> object to the processing of your data or request its restriction in the cases provided for by applicable regulations.</li>
+        <li><strong style="font-weight: 500;">Filing complaints:</strong> with the Superintendency of Industry and Commerce (SIC) of Colombia or the Information Commissioner's Office (ICO) of the United Kingdom, as applicable.</li>
+      </ul>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">Write to us at: <a href="mailto:privacidad@hereda.co">privacidad@hereda.co</a></p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">10. International transfers</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 40px;">Data may be processed on servers outside Colombia (UK and EU). We apply the safeguards required by Law 1581/2012 and the UK GDPR in all cases.</p>
+
+      <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 14px;">11. Changes to this policy</h2>
+      <p style="font-size: 17px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 32px;">We will notify any relevant change through the platform. The current version will always be available at hereda.co/privacy</p>
+
+      <p style="font-size: 17px; line-height: 1.68; color: #2C1810; margin: 0; padding: 26px 28px; background: #F3E9E0; border-left: 2px solid #E8834A; border-radius: 3px;">By activating your account on Hereda, you confirm that you have authority to represent your organisation, that you have read this notice, and that you authorise the processing of the data described for agricultural traceability and regulatory compliance purposes.</p>
+    </article>
+  </div>
+  </sc-if>
+
+  <footer style="background: #2C1810; color: rgba(250,245,240,0.7);">
+    <div data-pad="1" data-footer-grid="1" style="max-width: 1240px; margin: 0 auto; padding: 76px 48px 34px; display: grid; grid-template-columns: 1.3fr 0.6fr 0.6fr 0.7fr; gap: 56px;">
+      <div>
+        <img src="assets/hereda-lockup-dark.png" alt="Hereda" style="height: 44px; width: auto; display: block; margin-bottom: 22px;" />
+        <p style="font-size: 15px; line-height: 1.6; max-width: 30em; margin: 0;">Hereda is a compliance partner building verified digital identity infrastructure for smallholder cacao and coffee farmers.</p>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Company</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
+          <a href="Hereda Homepage.dc.html#what-we-do" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">What We Do</a>
+          <a href="Hereda Homepage.dc.html#how-it-works" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">How It Works</a>
+          <a href="Hereda Homepage.dc.html#why-hereda" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Why Hereda</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Legal</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
+          <a href="#" onClick="{{ showFarmers }}" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Privacy - Farmers</a>
+          <a href="#" onClick="{{ showExporters }}" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Privacy - Exporters</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Contact</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
+          <a href="mailto:Info@hereda.co" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Info@hereda.co</a>
+          <span style="line-height: 1.5;">124 City Road<br />London, EC1V 2NX</span>
+        </div>
+      </div>
+    </div>
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 0 48px 40px;">
+      <div style="border-top: 1px solid rgba(250,245,240,0.14); padding-top: 26px; font-size: 13px; color: rgba(250,245,240,0.45);">© 2026 Hereda. All rights reserved.</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { tab: "farmers" };
+  componentDidMount() {
+    if (location.hash === "#exporters" || location.hash === "#exportadores") this.setState({ tab: "exporters" });
+  }
+  set(tab) {
+    return e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab }); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  }
+  renderVals() {
+    const f = this.state.tab === "farmers";
+    return {
+      isFarmers: f, isExporters: !f,
+      showFarmers: this.set("farmers"), showExporters: this.set("exporters"),
+      farmersColor: f ? "#2C1810" : "rgba(44,24,16,0.55)",
+      exportersColor: f ? "rgba(44,24,16,0.55)" : "#2C1810",
+      farmersBorder: f ? "#C1440E" : "transparent",
+      exportersBorder: f ? "transparent" : "#C1440E"
+    };
+  }
+}
+</script>
+</body>
+</html>
