@@ -17,6 +17,9 @@
   a { color: #C1440E; text-decoration: none; }
   a:hover { color: #E8834A; }
   html { scroll-behavior: smooth; }
+  @keyframes heredaFloatA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes heredaFloatB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+  @keyframes heredaPulse { 0% { box-shadow: 0 0 0 0 rgba(43,191,176,0.45); } 70% { box-shadow: 0 0 0 16px rgba(43,191,176,0); } 100% { box-shadow: 0 0 0 0 rgba(43,191,176,0); } }
   section[id] { scroll-margin-top: 96px; }
   @media (max-width: 1000px) {
     [data-desktop-nav] { display: none !important; }
@@ -32,9 +35,11 @@
     [data-cta-row] > a { flex: 1 1 100%; text-align: center; }
   }
 </style>
+<script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2C1810; background: #FAF5F0; overflow-x: hidden;">
 
+  <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">
   <header style="position: sticky; top: 0; z-index: 50; background: rgba(250,245,240,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(44,24,16,0.09);">
     <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
       <a href="#top" style="display: flex; align-items: center;"><img src="assets/hereda-lockup-light.png" alt="Hereda" style="height: 38px; width: auto; display: block;"></a>
@@ -45,6 +50,7 @@
           <a href="#why-hereda" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Why Hereda</a>
         </nav>
         <a href="https://calendly.com/hereda/compliance-assessment" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 4px; white-space: nowrap;" style-hover="background: #E8834A; color: #FFFFFF;">Book a Compliance Assessment</a>
+        <button onClick="{{ toggleLang }}" aria-label="View in Spanish" style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; padding: 11px 13px; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; background: transparent; color: #2C1810; cursor: pointer;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04);">ES</button>
         <button data-menu-btn="1" onClick="{{ toggleMenu }}" aria-label="Menu" style="display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 0 10px; background: transparent; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; cursor: pointer;">
           <span style="height: 1.5px; background: #2C1810; display: block;"></span>
           <span style="height: 1.5px; background: #2BBFB0; display: block;"></span>
@@ -74,10 +80,8 @@
         <a href="#how-it-works" style="border: 1px solid rgba(44,24,16,0.28); color: #2C1810; font-size: 16px; font-weight: 500; padding: 17px 30px; border-radius: 4px;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04); color: #2C1810;">See How It Works</a>
       </div>
     </div>
-    <div style="position: relative; aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; background-color: #EFE4DA; background-image: repeating-linear-gradient(135deg, rgba(44,24,16,0.07) 0 10px, transparent 10px 20px); display: flex; align-items: flex-end; padding: 22px;">
-      <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(44,24,16,0.62); background: rgba(250,245,240,0.9); padding: 8px 12px; border-radius: 3px;">photo — hands registering a plot, GPS pin on farm map</span>
-      <div style="position: absolute; top: 26px; right: 26px; width: 15px; height: 15px; border-radius: 50%; background: #2BBFB0; box-shadow: 0 0 0 8px rgba(43,191,176,0.22);"></div>
-    </div>
+    <div style="display: flex; justify-content: center;">
+      <img src="assets/hero-app-mockup.png" alt="Hereda App — mapped plot with GPS signal and crop details" style="width: 100%; max-width: 440px; height: auto; display: block;" />    </div>
   </section>
 
   <section id="what-we-do" style="background: #2C1810; color: #FAF5F0;">
@@ -148,8 +152,8 @@
           <p style="font-size: 15px; font-style: italic; color: #2BBFB0; margin: 0 0 36px;">Compliance is where it starts.</p>
           <div style="margin-top: auto; display: flex; justify-content: center;">
             <div style="width: 246px; border: 9px solid #2C1810; border-bottom: none; border-radius: 30px 30px 0 0; padding: 12px 10px 0; background: #2C1810;">
-              <div style="background-color: #EFE4DA; background-image: repeating-linear-gradient(135deg, rgba(44,24,16,0.07) 0 10px, transparent 10px 20px); border-radius: 20px 20px 0 0; height: 300px; display: flex; align-items: flex-end; justify-content: center; padding: 16px;">
-                <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; line-height: 1.5; text-align: center; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(44,24,16,0.6); background: rgba(250,245,240,0.9); padding: 7px 9px; border-radius: 3px;">app screen — farmer identity &amp; mapped plot</span>
+              <div style="border-radius: 20px 20px 0 0; overflow: hidden; background: #2C1810;">
+                <img src="assets/app-sale-code.png" alt="Hereda App — verified farmer profile with EUDR status" style="width: 100%; display: block;" />
               </div>
             </div>
           </div>
@@ -166,8 +170,8 @@
                 <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
                 <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
               </div>
-              <div style="background-color: #EFE4DA; background-image: repeating-linear-gradient(135deg, rgba(44,24,16,0.07) 0 10px, transparent 10px 20px); height: 268px; display: flex; align-items: flex-end; padding: 18px;">
-                <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(44,24,16,0.6); background: rgba(250,245,240,0.9); padding: 7px 9px; border-radius: 3px;">dashboard screen — supply chain &amp; DDS status</span>
+              <div style="overflow: hidden; background: #FAF5F0;">
+                <img src="assets/dashboard-overview.png" alt="Exporter Dashboard — registered farmers, EUDR verification and DDS reports" style="width: 100%; display: block;" />
               </div>
             </div>
           </div>
@@ -217,8 +221,8 @@
       <div>
         <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Legal</p>
         <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
-          <a href="Hereda Privacy.dc.html" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Privacy - Farmers</a>
-          <a href="Hereda Privacy.dc.html#exporters" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Privacy - Exporters</a>
+          <a href="Hereda Privacy.dc.html" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Privacy Policy</a>
+          
         </div>
       </div>
       <div>
@@ -230,31 +234,261 @@
       </div>
     </div>
     <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 0 48px 40px;">
-      <div style="border-top: 1px solid rgba(250,245,240,0.14); padding-top: 26px; font-size: 13px; color: rgba(250,245,240,0.45);">© 2026 Hereda. All rights reserved.</div>
+      <div style="border-top: 1px solid rgba(250,245,240,0.14); padding-top: 26px; display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 13px; line-height: 1.6; color: rgba(250,245,240,0.45);">
+        <span>© 2026 Hereda Limited. All rights reserved.</span>
+        <span>Hereda Limited, registered in England and Wales, company number 17363929.</span>
+        <span>Registered office: 124 City Road, London, EC1V 2NX, United Kingdom.</span>
+      </div>
     </div>
   </footer>
+  </sc-if>
+
+  <sc-if value="{{ isEs }}" hint-placeholder-val="{{ false }}">
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(250,245,240,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(44,24,16,0.09);">
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="#top-es" style="display: flex; align-items: center;"><img src="assets/hereda-lockup-light.png" alt="Hereda" style="height: 38px; width: auto; display: block;"></a>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <nav data-desktop-nav="1" style="display: flex; align-items: center; gap: 38px;">
+          <a href="#what-we-do-es" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Qué Hacemos</a>
+          <a href="#how-it-works-es" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Cómo Funciona</a>
+          <a href="#why-hereda-es" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Por Qué Hereda</a>
+        </nav>
+        <a href="https://calendly.com/hereda/compliance-assessment" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 4px; white-space: nowrap;" style-hover="background: #E8834A; color: #FFFFFF;">Agenda tu Evaluación</a>
+        <button onClick="{{ toggleLang }}" aria-label="Ver en inglés" style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; padding: 11px 13px; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; background: transparent; color: #2C1810; cursor: pointer;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04);">EN</button>
+        <button data-menu-btn="1" onClick="{{ toggleMenu }}" aria-label="Menu" style="display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 0 10px; background: transparent; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; cursor: pointer;">
+          <span style="height: 1.5px; background: #2C1810; display: block;"></span>
+          <span style="height: 1.5px; background: #2BBFB0; display: block;"></span>
+          <span style="height: 1.5px; background: #E8834A; display: block;"></span>
+        </button>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-pad="1" style="border-top: 1px solid rgba(44,24,16,0.09); padding: 18px 48px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <a href="#what-we-do-es" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Qué Hacemos</a>
+        <a href="#how-it-works-es" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Cómo Funciona</a>
+        <a href="#why-hereda-es" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Por Qué Hereda</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <section id="top-es" data-stack="1" data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 104px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center;">
+    <div>
+      <h1 data-h1="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 28px;">
+        Hereda.<br>
+        La solución <span style="display: inline-block; min-width: 7em; color: #E8834A; transition: opacity 200ms ease; opacity: {{ wordOpacity }};">{{ word }}</span><br>
+        de cumplimiento EUDR.
+      </h1>
+      <p style="font-size: 19px; line-height: 1.62; max-width: 560px; color: rgba(44,24,16,0.78); margin: 0 0 36px;">La UE exige que cada embarque de cacao y café sea trazable hasta una finca verificada por GPS y libre de deforestación antes de diciembre de 2026. No solo te entregamos un software: vamos al campo, registramos a tus agricultores y gestionamos todo el proceso.</p>
+      <div data-cta-row="1" style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="https://calendly.com/hereda/compliance-assessment" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 16px; font-weight: 500; padding: 17px 30px; border-radius: 4px;" style-hover="background: #E8834A; color: #FFFFFF;">Agenda tu Evaluación</a>
+        <a href="#how-it-works-es" style="border: 1px solid rgba(44,24,16,0.28); color: #2C1810; font-size: 16px; font-weight: 500; padding: 17px 30px; border-radius: 4px;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04); color: #2C1810;">See Cómo Funciona</a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <img src="assets/hero-app-mockup.png" alt="Hereda App — mapped plot with GPS signal and crop details" style="width: 100%; max-width: 440px; height: auto; display: block;" />    </div>
+  </section>
+
+  <section id="what-we-do-es" style="background: #2C1810; color: #FAF5F0;">
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 104px 48px;">
+      <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 26px; max-width: 16em;">Cumplimiento robusto. Hecho en conjunto.</h2>
+      <p style="font-size: 19px; line-height: 1.62; max-width: 760px; color: rgba(250,245,240,0.8); margin: 0 0 72px;">El cumplimiento del EUDR no es una casilla que se marca: es verificación en campo, evaluación de riesgo y documentación que debe sostenerse ante una auditoría. No te entregamos una herramienta y desaparecemos. Estamos en el campo con tus agricultores y a tu lado en cada paso del proceso.</p>
+      <div data-stack="1" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; border-top: 1px solid rgba(250,245,240,0.18); padding-top: 44px;">
+        <div>
+          <div style="width: 34px; height: 34px; border: 1.5px solid #2BBFB0; border-radius: 3px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px;"><div style="width: 13px; height: 7px; border-left: 1.5px solid #2BBFB0; border-bottom: 1.5px solid #2BBFB0; transform: rotate(-45deg) translateY(-2px);"></div></div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 27px; margin: 0 0 12px;">Verificado en campo</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(250,245,240,0.74); margin: 0;">Nuestro equipo registra y verifica por GPS cada finca en persona, no con datos autoreportados.</p>
+        </div>
+        <div>
+          <div style="width: 34px; height: 34px; border: 1.5px solid #2BBFB0; border-radius: 50% 50% 50% 4px; transform: rotate(-45deg); margin-bottom: 22px;"></div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 27px; margin: 0 0 12px;">Listo para auditoría</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(250,245,240,0.74); margin: 0;">Cruces con datos satelitales y evaluaciones de riesgo de deforestación hechas para resistir el escrutinio europeo.</p>
+        </div>
+        <div>
+          <div style="width: 34px; height: 34px; margin-bottom: 22px; display: grid; grid-template-rows: repeat(3, 1fr); gap: 4px;"><div style="background: #2BBFB0; height: 2px;"></div><div style="background: #2BBFB0; height: 2px;"></div><div style="background: #E8834A; height: 2px;"></div></div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 27px; margin: 0 0 12px;">De punta a punta</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(250,245,240,0.74); margin: 0;">Desde el registro del agricultor hasta tu Declaración de Diligencia Debida, gestionamos el proceso contigo, no solo el software.</p>
+        </div>
+      </div>
+      <p style="font-size: 13px; letter-spacing: 0.02em; color: rgba(250,245,240,0.42); margin: 56px 0 0;">Fecha límite para operadores medianos y grandes: 30 de diciembre de 2026.</p>
+    </div>
+  </section>
+
+  <section id="how-it-works-es" data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px;">
+    <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C1440E; margin: 0 0 18px;">Cómo Funciona</p>
+    <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 76px; max-width: 20em;">Del campo a tu Declaración de Diligencia Debida</h2>
+    <div style="position: relative;">
+      <div data-step-line="1" style="position: absolute; top: 21px; left: 3%; right: 3%; height: 1px; background: linear-gradient(90deg, rgba(44,24,16,0.18), rgba(44,24,16,0.18)); z-index: 0;"></div>
+      <div data-stack="1" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px; position: relative; z-index: 1;">
+        <div>
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #FAF5F0; border: 1px solid rgba(44,24,16,0.2); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; margin-bottom: 26px;">1</div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 25px; margin: 0 0 12px;">Registro en campo</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(44,24,16,0.72); margin: 0;">Nuestro equipo va finca por finca: linderos GPS, documentos de tenencia de la tierra, fotos y datos de producción, capturados en persona con la app de Hereda.</p>
+        </div>
+        <div>
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #FAF5F0; border: 1px solid rgba(44,24,16,0.2); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; margin-bottom: 26px;">2</div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 25px; margin: 0 0 12px;">Auditoría de deforestación y riesgo</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(44,24,16,0.72); margin: 0;">Cada parcela se cruza con datos satelitales para confirmar que está libre de deforestación y se evalúa según los criterios de riesgo del EUDR.</p>
+        </div>
+        <div>
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #2BBFB0; border: 1px solid #2BBFB0; color: #2C1810; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; margin-bottom: 26px;">3</div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 25px; margin: 0 0 12px;">Identidad digital del agricultor</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(44,24,16,0.72); margin: 0;">Cada agricultor obtiene un registro digital verificado y permanente: no un dato capturado una sola vez, sino una identidad que le pertenece y sobre la que puede construir.</p>
+        </div>
+        <div>
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #FAF5F0; border: 1px solid rgba(44,24,16,0.2); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; margin-bottom: 26px;">4</div>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 25px; margin: 0 0 12px;">Panel del exportador y DDS</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(44,24,16,0.72); margin: 0;">Obtienes visibilidad total de tu cadena de suministro verificada, más la documentación para generar y presentar tu Declaración de Diligencia Debida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #F3E9E0;">
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px;">
+      <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C1440E; margin: 0 0 18px;">Lo Que Construimos</p>
+      <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 72px; max-width: 20em;">Un solo sistema, construido para los dos extremos de la cadena</h2>
+      <div data-stack="1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+
+        <div style="background: #FAF5F0; border-top: 3px solid #2BBFB0; border-radius: 4px; padding: 44px 40px 0; display: flex; flex-direction: column;">
+          <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #2BBFB0; margin: 0 0 16px;">Hereda App</p>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.15; margin: 0 0 18px;">Su tierra. Su registro. Suyo para siempre.</h3>
+          <p style="font-size: 17px; line-height: 1.62; color: rgba(44,24,16,0.76); margin: 0 0 14px;">La app de Hereda le da a cada agricultor registrado una identidad digital verificada: tierra mapeada por GPS, historial de producción y documentación de cumplimiento, todo en un solo lugar y en sus manos. No son datos recogidos para el expediente de otro. Es el inicio de un registro que es suyo y sobre el que puede construir.</p>
+          <p style="font-size: 15px; font-style: italic; color: #2BBFB0; margin: 0 0 36px;">El cumplimiento es solo el comienzo.</p>
+          <div style="margin-top: auto; display: flex; justify-content: center;">
+            <div style="width: 246px; border: 9px solid #2C1810; border-bottom: none; border-radius: 30px 30px 0 0; padding: 12px 10px 0; background: #2C1810;">
+              <div style="border-radius: 20px 20px 0 0; overflow: hidden; background: #2C1810;">
+                <img src="assets/app-sale-code.png" alt="App de Hereda — perfil verificado del agricultor con estado EUDR" style="width: 100%; display: block;" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #2C1810; border-top: 3px solid #E8834A; border-radius: 4px; padding: 44px 40px 0; display: flex; flex-direction: column; color: #FAF5F0;">
+          <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #E8834A; margin: 0 0 16px;">Panel del Exportador</p>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.15; margin: 0 0 18px;">Visibilidad total, cero suposiciones.</h3>
+          <p style="font-size: 17px; line-height: 1.62; color: rgba(250,245,240,0.78); margin: 0 0 36px;">Visibilidad en tiempo real de tu cadena de suministro verificada: cada finca, cada evaluación de riesgo, cada documento, y todo lo necesario para generar y presentar tu Declaración de Diligencia Debida.</p>
+          <div style="margin-top: auto;">
+            <div style="background: #FAF5F0; border-radius: 6px 6px 0 0; overflow: hidden;">
+              <div style="display: flex; align-items: center; gap: 6px; padding: 11px 14px; background: #EFE4DA; border-bottom: 1px solid rgba(44,24,16,0.1);">
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
+              </div>
+              <div style="overflow: hidden; background: #FAF5F0;">
+                <img src="assets/dashboard-overview.png" alt="Panel del Exportador — agricultores registrados, verificación EUDR y reportes DDS" style="width: 100%; display: block;" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="why-hereda-es" data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px;">
+    <div data-stack="1" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: center;">
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C1440E; margin: 0 0 22px;">Por Qué Hereda</p>
+        <h2 data-h2-lg="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 68px; line-height: 1.0; letter-spacing: -0.02em; margin: 0 0 24px;">Cumplimiento, construido desde la raíz.</h2>
+        <p style="font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; line-height: 1.35; color: rgba(44,24,16,0.7); margin: 0 0 44px; max-width: 22em;">No una casilla que marcar, sino la oportunidad de construir algo mejor, con quienes lo cultivan.</p>
+        <p style="font-size: 18px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 22px; max-width: 34em;">La mayoría de las herramientas de cumplimiento se detienen en el panel. Te entregan un usuario y te dejan la parte más difícil, el trabajo de campo. Hereda va al campo: registramos a tus agricultores, verificamos su tierra y gestionamos el proceso de principio a fin.</p>
+        <p style="font-size: 18px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0; max-width: 34em;">El EUDR es donde empezamos, no donde terminamos. Y construimos esto con los agricultores, no a su alrededor. Cada persona que registramos no es un dato en el expediente de alguien más: es participante de un sistema construido con ella.</p>
+      </div>
+      <div style="aspect-ratio: 3/4; border-radius: 6px; background-color: #EFE4DA; background-image: repeating-linear-gradient(135deg, rgba(44,24,16,0.07) 0 10px, transparent 10px 20px); display: flex; align-items: flex-end; padding: 22px;">
+        <span style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(44,24,16,0.62); background: rgba(250,245,240,0.9); padding: 8px 12px; border-radius: 3px;">foto — visita de campo, registro de finca</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #C1440E; color: #FAF5F0;">
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; text-align: center;">
+      <h2 data-h2-lg="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 20px;">Hagámoslo juntos.</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: rgba(250,245,240,0.9); max-width: 640px; margin: 0 auto 40px;">Agenda una evaluación de cumplimiento y trazamos exactamente lo que tu cadena de suministro necesita antes de diciembre de 2026.</p>
+      <a href="https://calendly.com/hereda/compliance-assessment" target="_blank" rel="noopener" style="display: inline-block; background: #FAF5F0; color: #C1440E; font-size: 17px; font-weight: 500; padding: 19px 34px; border-radius: 4px;" style-hover="background: #2C1810; color: #FAF5F0;">Agenda tu Evaluación</a>
+    </div>
+  </section>
+
+  <footer style="background: #2C1810; color: rgba(250,245,240,0.7);">
+    <div data-pad="1" data-footer-grid="1" style="max-width: 1240px; margin: 0 auto; padding: 76px 48px 34px; display: grid; grid-template-columns: 1.3fr 0.6fr 0.6fr 0.7fr; gap: 56px;">
+      <div>
+        <img src="assets/hereda-lockup-dark.png" alt="Hereda" style="height: 44px; width: auto; display: block; margin-bottom: 22px;">
+        <p style="font-size: 15px; line-height: 1.6; max-width: 30em; margin: 0;">Hereda es un socio de cumplimiento que construye infraestructura de identidad digital verificada para pequeños productores de cacao y café.</p>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Compañía</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
+          <a href="#what-we-do-es" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Qué Hacemos</a>
+          <a href="#how-it-works-es" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Cómo Funciona</a>
+          <a href="#why-hereda-es" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Por Qué Hereda</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Legal</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
+          <a href="Hereda Privacy.dc.html" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Política de Privacidad</a>
+          
+        </div>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,245,240,0.45); margin: 0 0 18px;">Contacto</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 15px;">
+          <a href="mailto:Info@hereda.co" style="color: rgba(250,245,240,0.78);" style-hover="color: #E8834A;">Info@hereda.co</a>
+          <span style="line-height: 1.5;">124 City Road<br>London, EC1V 2NX</span>
+        </div>
+      </div>
+    </div>
+    <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 0 48px 40px;">
+      <div style="border-top: 1px solid rgba(250,245,240,0.14); padding-top: 26px; display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 13px; line-height: 1.6; color: rgba(250,245,240,0.45);">
+        <span>© 2026 Hereda Limited. Todos los derechos reservados.</span>
+        <span>Hereda Limited, registrada en Inglaterra y Gales, número de compañía 17363929.</span>
+        <span>Domicilio social: 124 City Road, Londres, EC1V 2NX, Reino Unido.</span>
+      </div>
+    </div>
+  </footer>
+  </sc-if>
 
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { i: 0, visible: true, menuOpen: false };
-  words = ["simplest", "most compliant", "cheapest", "fastest"];
+  state = { i: 0, visible: true, menuOpen: false, lang: "en" };
+  words = {
+    en: ["simplest", "most compliant", "cheapest", "fastest"],
+    es: ["más simple", "más completa", "más económica", "más rápida"]
+  };
   componentDidMount() {
+    let lang = null;
+    try { lang = localStorage.getItem("hereda-lang"); } catch (e) {}
+    const q = new URLSearchParams(location.search).get("lang");
+    if (q === "es" || q === "en") lang = q;
+    if (lang !== "es" && lang !== "en") {
+      const tags = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      lang = tags.some(t => String(t).toLowerCase().indexOf("es") === 0) ? "es" : "en";
+    }
+    this.setLang(lang);
     this.timer = setInterval(() => {
       this.setState({ visible: false });
       this.fade = setTimeout(() => {
-        this.setState(s => ({ i: (s.i + 1) % this.words.length, visible: true }));
+        this.setState(s => ({ i: (s.i + 1) % 4, visible: true }));
       }, 200);
     }, 2400);
   }
   componentWillUnmount() { clearInterval(this.timer); clearTimeout(this.fade); }
+  setLang(lang) {
+    this.setState({ lang, menuOpen: false });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem("hereda-lang", lang); } catch (e) {}
+  }
   renderVals() {
+    const lang = this.state.lang;
     return {
-      word: this.words[this.state.i],
+      isEn: lang !== "es",
+      isEs: lang === "es",
+      toggleLang: () => this.setLang(lang === "es" ? "en" : "es"),
+      word: this.words[lang === "es" ? "es" : "en"][this.state.i],
       wordOpacity: this.state.visible ? 1 : 0,
       menuOpen: this.state.menuOpen,
-      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      toggleMenu: () => this.setState(st => ({ menuOpen: !st.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false })
     };
   }
