@@ -25,6 +25,9 @@
     [data-desktop-nav] { display: none !important; }
     [data-menu-btn] { display: flex !important; }
   }
+  @media (max-width: 760px) {
+    [data-header-cta] { display: none !important; }
+  }
   @media (max-width: 900px) {
     [data-stack] { grid-template-columns: 1fr !important; gap: 44px !important; }
     [data-footer-grid] { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
@@ -49,7 +52,7 @@
           <a href="#how-it-works" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">How It Works</a>
           <a href="#why-hereda" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Why Hereda</a>
         </nav>
-        <a href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 4px; white-space: nowrap;" style-hover="background: #E8834A; color: #FFFFFF;">Book a Compliance Assessment</a>
+        <a data-header-cta="1" href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 4px; white-space: nowrap;" style-hover="background: #E8834A; color: #FFFFFF;">Book a Compliance Assessment</a>
         <button onClick="{{ toggleLang }}" aria-label="View in Spanish" style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; padding: 11px 13px; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; background: transparent; color: #2C1810; cursor: pointer;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04);">ES</button>
         <button data-menu-btn="1" onClick="{{ toggleMenu }}" aria-label="Menu" style="display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 0 10px; background: transparent; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; cursor: pointer;">
           <span style="height: 1.5px; background: #2C1810; display: block;"></span>
@@ -63,6 +66,7 @@
         <a href="#what-we-do" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">What We Do</a>
         <a href="#how-it-works" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">How It Works</a>
         <a href="#why-hereda" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Why Hereda</a>
+        <a href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="background: #C1440E; color: #FAF5F0; font-size: 16px; font-weight: 500; padding: 15px 20px; border-radius: 4px; text-align: center; margin-top: 4px;" style-hover="background: #E8834A; color: #FFFFFF;">Book a Compliance Assessment</a>
       </div>
     </sc-if>
   </header>
@@ -81,7 +85,7 @@
       </div>
     </div>
     <div style="display: flex; justify-content: center;">
-      <img src="assets/hero-app-mockup.png" alt="Hereda App — mapped plot with GPS signal and crop details" style="width: 100%; max-width: 440px; height: auto; display: block;" />    </div>
+      <img src="assets/hero-app-mockup.png" alt="Hereda App — mapped plot with GPS signal and crop details" style="width: 100%; max-width: 440px; height: auto; display: block;">    </div>
   </section>
 
   <section id="what-we-do" style="background: #2C1810; color: #FAF5F0;">
@@ -153,7 +157,7 @@
           <div style="margin-top: auto; display: flex; justify-content: center;">
             <div style="width: 246px; border: 9px solid #2C1810; border-bottom: none; border-radius: 30px 30px 0 0; padding: 12px 10px 0; background: #2C1810;">
               <div style="border-radius: 20px 20px 0 0; overflow: hidden; background: #2C1810;">
-                <img src="assets/app-sale-code.png" alt="Hereda App — verified farmer profile with EUDR status" style="width: 100%; display: block;" />
+                <img src="assets/app-sale-code.png" alt="Hereda App — verified farmer profile with EUDR status" style="width: 100%; display: block;">
               </div>
             </div>
           </div>
@@ -171,7 +175,7 @@
                 <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
               </div>
               <div style="overflow: hidden; background: #FAF5F0;">
-                <img src="assets/dashboard-overview.png" alt="Exporter Dashboard — registered farmers, EUDR verification and DDS reports" style="width: 100%; display: block;" />
+                <img src="assets/dashboard-overview.png" alt="Exporter Dashboard — registered farmers, EUDR verification and DDS reports" style="width: 100%; display: block;">
               </div>
             </div>
           </div>
@@ -253,7 +257,7 @@
           <a href="#how-it-works-es" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Cómo Funciona</a>
           <a href="#why-hereda-es" style="color: #2C1810; font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;" style-hover="color: #C1440E;">Por Qué Hereda</a>
         </nav>
-        <a href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 4px; white-space: nowrap;" style-hover="background: #E8834A; color: #FFFFFF;">Agenda tu Evaluación</a>
+        <a data-header-cta="1" href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 4px; white-space: nowrap;" style-hover="background: #E8834A; color: #FFFFFF;">Agenda tu Evaluación</a>
         <button onClick="{{ toggleLang }}" aria-label="Ver en inglés" style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; padding: 11px 13px; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; background: transparent; color: #2C1810; cursor: pointer;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04);">EN</button>
         <button data-menu-btn="1" onClick="{{ toggleMenu }}" aria-label="Menu" style="display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 0 10px; background: transparent; border: 1px solid rgba(44,24,16,0.2); border-radius: 4px; cursor: pointer;">
           <span style="height: 1.5px; background: #2C1810; display: block;"></span>
@@ -267,6 +271,7 @@
         <a href="#what-we-do-es" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Qué Hacemos</a>
         <a href="#how-it-works-es" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Cómo Funciona</a>
         <a href="#why-hereda-es" onClick="{{ closeMenu }}" style="color: #2C1810; font-size: 17px; font-weight: 500;">Por Qué Hereda</a>
+        <a href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="background: #C1440E; color: #FAF5F0; font-size: 16px; font-weight: 500; padding: 15px 20px; border-radius: 4px; text-align: center; margin-top: 4px;" style-hover="background: #E8834A; color: #FFFFFF;">Agenda tu Evaluación</a>
       </div>
     </sc-if>
   </header>
@@ -281,16 +286,16 @@
       <p style="font-size: 19px; line-height: 1.62; max-width: 560px; color: rgba(44,24,16,0.78); margin: 0 0 36px;">La UE exige que cada embarque de cacao y café sea trazable hasta una finca verificada por GPS y libre de deforestación antes de diciembre de 2026. No solo te entregamos un software: vamos al campo, registramos a tus agricultores y gestionamos todo el proceso.</p>
       <div data-cta-row="1" style="display: flex; gap: 14px; flex-wrap: wrap;">
         <a href="https://calendly.com/paola-hereda/30min" target="_blank" rel="noopener" style="background: #C1440E; color: #FAF5F0; font-size: 16px; font-weight: 500; padding: 17px 30px; border-radius: 4px;" style-hover="background: #E8834A; color: #FFFFFF;">Agenda tu Evaluación</a>
-        <a href="#how-it-works-es" style="border: 1px solid rgba(44,24,16,0.28); color: #2C1810; font-size: 16px; font-weight: 500; padding: 17px 30px; border-radius: 4px;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04); color: #2C1810;">See Cómo Funciona</a>
+        <a href="#how-it-works-es" style="border: 1px solid rgba(44,24,16,0.28); color: #2C1810; font-size: 16px; font-weight: 500; padding: 17px 30px; border-radius: 4px;" style-hover="border-color: #2C1810; background: rgba(44,24,16,0.04); color: #2C1810;">Ver Cómo Funciona</a>
       </div>
     </div>
     <div style="display: flex; justify-content: center;">
-      <img src="assets/hero-app-mockup.png" alt="Hereda App — mapped plot with GPS signal and crop details" style="width: 100%; max-width: 440px; height: auto; display: block;" />    </div>
+      <img src="assets/hero-app-mockup.png" alt="Hereda App — mapped plot with GPS signal and crop details" style="width: 100%; max-width: 440px; height: auto; display: block;">    </div>
   </section>
 
   <section id="what-we-do-es" style="background: #2C1810; color: #FAF5F0;">
     <div data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 104px 48px;">
-      <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 26px; max-width: 16em;">Cumplimiento robusto. Hecho en conjunto.</h2>
+      <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 26px; max-width: 16em;">Cumplimiento robusto. Hecho en Equipo</h2>
       <p style="font-size: 19px; line-height: 1.62; max-width: 760px; color: rgba(250,245,240,0.8); margin: 0 0 72px;">El cumplimiento del EUDR no es una casilla que se marca: es verificación en campo, evaluación de riesgo y documentación que debe sostenerse ante una auditoría. No te entregamos una herramienta y desaparecemos. Estamos en el campo con tus agricultores y a tu lado en cada paso del proceso.</p>
       <div data-stack="1" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; border-top: 1px solid rgba(250,245,240,0.18); padding-top: 44px;">
         <div>
@@ -315,7 +320,7 @@
 
   <section id="how-it-works-es" data-pad="1" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px;">
     <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C1440E; margin: 0 0 18px;">Cómo Funciona</p>
-    <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 76px; max-width: 20em;">Del campo a tu Declaración de Diligencia Debida</h2>
+    <h2 data-h2="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 76px; max-width: 20em;">Del campo a tu Declaración de Debida Diligencia</h2>
     <div style="position: relative;">
       <div data-step-line="1" style="position: absolute; top: 21px; left: 3%; right: 3%; height: 1px; background: linear-gradient(90deg, rgba(44,24,16,0.18), rgba(44,24,16,0.18)); z-index: 0;"></div>
       <div data-stack="1" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px; position: relative; z-index: 1;">
@@ -351,13 +356,13 @@
 
         <div style="background: #FAF5F0; border-top: 3px solid #2BBFB0; border-radius: 4px; padding: 44px 40px 0; display: flex; flex-direction: column;">
           <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #2BBFB0; margin: 0 0 16px;">Hereda App</p>
-          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.15; margin: 0 0 18px;">Su tierra. Su registro. Suyo para siempre.</h3>
+          <h3 style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.15; margin: 0 0 18px;">Para el Productor: Su registro, su polígono, su Identidad Digital.</h3>
           <p style="font-size: 17px; line-height: 1.62; color: rgba(44,24,16,0.76); margin: 0 0 14px;">La app de Hereda le da a cada agricultor registrado una identidad digital verificada: tierra mapeada por GPS, historial de producción y documentación de cumplimiento, todo en un solo lugar y en sus manos. No son datos recogidos para el expediente de otro. Es el inicio de un registro que es suyo y sobre el que puede construir.</p>
           <p style="font-size: 15px; font-style: italic; color: #2BBFB0; margin: 0 0 36px;">El cumplimiento es solo el comienzo.</p>
           <div style="margin-top: auto; display: flex; justify-content: center;">
             <div style="width: 246px; border: 9px solid #2C1810; border-bottom: none; border-radius: 30px 30px 0 0; padding: 12px 10px 0; background: #2C1810;">
               <div style="border-radius: 20px 20px 0 0; overflow: hidden; background: #2C1810;">
-                <img src="assets/app-sale-code.png" alt="App de Hereda — perfil verificado del agricultor con estado EUDR" style="width: 100%; display: block;" />
+                <img src="assets/app-sale-code.png" alt="App de Hereda — perfil verificado del agricultor con estado EUDR" style="width: 100%; display: block;">
               </div>
             </div>
           </div>
@@ -375,7 +380,7 @@
                 <div style="width: 9px; height: 9px; border-radius: 50%; background: rgba(44,24,16,0.22);"></div>
               </div>
               <div style="overflow: hidden; background: #FAF5F0;">
-                <img src="assets/dashboard-overview.png" alt="Panel del Exportador — agricultores registrados, verificación EUDR y reportes DDS" style="width: 100%; display: block;" />
+                <img src="assets/dashboard-overview.png" alt="Panel del Exportador — agricultores registrados, verificación EUDR y reportes DDS" style="width: 100%; display: block;">
               </div>
             </div>
           </div>
@@ -391,7 +396,7 @@
         <p style="font-family: 'DM Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C1440E; margin: 0 0 22px;">Por Qué Hereda</p>
         <h2 data-h2-lg="1" style="font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 68px; line-height: 1.0; letter-spacing: -0.02em; margin: 0 0 24px;">Cumplimiento, construido desde la raíz.</h2>
         <p style="font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; line-height: 1.35; color: rgba(44,24,16,0.7); margin: 0 0 44px; max-width: 22em;">No una casilla que marcar, sino la oportunidad de construir algo mejor, con quienes lo cultivan.</p>
-        <p style="font-size: 18px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 22px; max-width: 34em;">La mayoría de las herramientas de cumplimiento se detienen en el panel. Te entregan un usuario y te dejan la parte más difícil, el trabajo de campo. Hereda va al campo: registramos a tus agricultores, verificamos su tierra y gestionamos el proceso de principio a fin.</p>
+        <p style="font-size: 18px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0 0 22px; max-width: 34em;">La mayoría de las herramientas de cumplimiento se detienen en el panel. Te entregan un usuario y te dejan la parte más difícil, el trabajo de campo. Hereda llega al campo: tus productores se registran, verificamos su tierra y gestionamos el proceso de principio a fin.</p>
         <p style="font-size: 18px; line-height: 1.68; color: rgba(44,24,16,0.8); margin: 0; max-width: 34em;">El EUDR es donde empezamos, no donde terminamos. Y construimos esto con los agricultores, no a su alrededor. Cada persona que registramos no es un dato en el expediente de alguien más: es participante de un sistema construido con ella.</p>
       </div>
       <div style="aspect-ratio: 3/4; border-radius: 6px; background-color: #EFE4DA; background-image: repeating-linear-gradient(135deg, rgba(44,24,16,0.07) 0 10px, transparent 10px 20px); display: flex; align-items: flex-end; padding: 22px;">
